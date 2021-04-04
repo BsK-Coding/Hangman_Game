@@ -3,6 +3,7 @@
 const readlineSync = require('readline-sync')         // yarn add readline-sync dans le Terminal
 const chalk = require('chalk')                        // yarn add chalk
 const fs = require('fs')
+const { HANGMANPICS } = require('./hangmanPics')
 
 // Une solution que j'ai proposé est de travailler avec un tableau pour le mot à afficher (la string  composé de plusieurs caractères _)
 // Ce tableau devra posseder la même taille que le mot à trouver:
@@ -22,71 +23,7 @@ const fs = require('fs')
 // Afficher les caractère déjà tapé
 
 
-/* ETAPES DU PENDU */
 
-HANGMANPICS = [`
- 
-       
-        
-        
-        
-        
-=========`, `
-        |
-        |
-        |
-        |
-        |
-=========`, `
-  + --- +
-  |     |
-        |
-        |
-        |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-        |
-        |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-    |   |
-        |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-   /|   |
-        |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-   /|\\  |
-        |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-   /|\\  |
-   /    |
-        |
-=========`, `
-    +---+
-    |   |
-    O   |
-   /|\\  |
-   / \\  |
-        |
-=========`]
 
 const startGame = () => {
   const wordStr = "solana"
