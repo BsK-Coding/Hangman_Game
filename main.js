@@ -81,132 +81,137 @@ HANGMANPICS = [`
 =========`]
 
 const startGame = () => {
-  const wordStr = "salut"
+  const wordStr = "pendu"
+  //Split => Transforme ma data String dans un tableau, en découpant ma data par rapport au séparateur renseigné.
   let word = wordStr.split('')
   //console.log(word)
   //word = ["s", "a", "l", "u", "t"]
+
 
   const secret = Array(word.length).fill('_')
   let secretOut = secret
   console.log(secret)
 
   let count = 0
-  while (count < HANGMANPICS.length) {
+  while (true) {
     const input = readlineSync.question('Veuillez entrer un caractères: ')
     console.log('Il vous reste', (HANGMANPICS.length - count), ' essaie')
-    //for (let index = 0; index < word.length; ++index) {
-    //console.log('index: ', index)
-    switch (input) {
-      case 'a':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'b':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'c':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'd':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'e':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'f':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'g':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'h':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'i':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'j':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'k':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'l':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'm':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'n':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'o':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'p':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'q':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'r':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 's':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 't':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'u':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'v':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'w':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'x':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'y':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      case 'z':
-        word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : console.log(HANGMANPICS[count])
-        break
-
-      default:
-        // Instructions à exécuter lorsqu'aucune des valeurs
-        break
-
+    if (count === HANGMANPICS.length) {
+      return console.log('!!! GAME OVER !!!')
     }
-    count++
+    else {
+      //for (let index = 0; index < word.length; ++index) {
+      //console.log('index: ', index)
+      switch (input) {
+        case 'a':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'b':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'c':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'd':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'e':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'f':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'g':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'h':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'i':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'j':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'k':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'l':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'm':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'n':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'o':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'p':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'q':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'r':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 's':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 't':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'u':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'v':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'w':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'x':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'y':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        case 'z':
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          break
+
+        default:
+          // Instructions à exécuter lorsqu'aucune des valeurs
+          break
+      }
+    }
     console.log(secretOut)
   }
 
