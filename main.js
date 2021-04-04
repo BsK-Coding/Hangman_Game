@@ -17,6 +17,10 @@ const fs = require('fs')
 // lettre en doublon  => n'en renseigne qu'une
 // Mot trop long      => le programme ne remplace plus les "_"
 
+/* Option à ajouter */
+// Lors du renseignement des bonnes lettres, ajouter un commentaire caractère déjà renseigné
+// Afficher les caractère déjà tapé
+
 
 /* ETAPES DU PENDU */
 
@@ -90,7 +94,6 @@ const startGame = () => {
   let word = wordStr.split('')
   //console.log(word)
   //word = ["s", "a", "l", "u", "t"]
-
 
   const secret = Array(word.length).fill('_')
   let secretOut = secret
