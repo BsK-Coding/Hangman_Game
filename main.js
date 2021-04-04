@@ -13,6 +13,10 @@ const fs = require('fs')
 // console.log(output.join(' '))
 // Avec l'exemple précédent si un utilisateur propose un o, o est bien dans le mot soleil et à l'index 1(2eme char), on pourra juste faire ensuite output[1] = 'o'
 
+/* Bugs répertorié */
+// lettre en doublon  => n'en renseigne qu'une
+// Mot trop long      => le programme ne remplace plus les "_"
+
 
 /* ETAPES DU PENDU */
 
@@ -81,7 +85,7 @@ HANGMANPICS = [`
 =========`]
 
 const startGame = () => {
-  const wordStr = "pendu"
+  const wordStr = "solana"
   //Split => Transforme ma data String dans un tableau, en découpant ma data par rapport au séparateur renseigné.
   let word = wordStr.split('')
   //console.log(word)
@@ -100,8 +104,6 @@ const startGame = () => {
       return console.log('!!! GAME OVER !!!')
     }
     else {
-      //for (let index = 0; index < word.length; ++index) {
-      //console.log('index: ', index)
       switch (input) {
         case 'a':
           word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
@@ -218,58 +220,3 @@ const startGame = () => {
 }
 
 startGame()
-
-/* case en test
-case 'a':
-        word.find(index => index === input) ? (secretOut[index] = word[index].replace()) : 'pendu'
-        console.log(secretOut)
-        instructions1;
-        break
-*/
-
-/*
-CODE FONCTIONNELLE POUR REMPLACEMENT DE CARACTERE
-  let i = 0
-  while (i < word.length) {
-    const input = readlineSync.question('Veuillez entrer un caractères: ')
-
-    /*
-    if (input === word[i]) {
-      secretOut[i] = word[i].replace()
-      console.log(secretOut)
-
-  }
-  i++
-  //console.log(i)
-
-
-
-*/
-
-//console.log(secret)
-
-/*
-
-const scanWord = () => {
-
-  //for (let i = 0; i < word.length; ++i) {
-  while (true) {
-
-    let i = 0
-    //console.log(debut)
-    console.log(word[i])
-    if (input === word[i]) {
-      console.log('good')
-      console.log(`Le caractère se trouve à l'index: ${i}`)
-      i++
-    }
-    else {
-      console.log('bad')
-      i++
-    }
-
-  }
-}
-//}
-
-*/
