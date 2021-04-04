@@ -22,9 +22,6 @@ const { HANGMANPICS } = require('./hangmanPics')
 // Lors du renseignement des bonnes lettres, ajouter un commentaire caractère déjà renseigné
 // Afficher les caractère déjà tapé
 
-
-
-
 const startGame = () => {
   const wordStr = "solana"
   //Split => Transforme ma data String dans un tableau, en découpant ma data par rapport au séparateur renseigné.
@@ -34,19 +31,22 @@ const startGame = () => {
 
   const secret = Array(word.length).fill('_')
   let secretOut = secret
-  console.log(secret)
+  let secretStr = secret.join(' ')
+  console.log(`\n## Jeux du Pendu ##\n\nVous devez trouver un mot de ${secret.length} caractères\n`, secretStr, '\n')
 
   let count = 0
   while (true) {
-    const input = readlineSync.question('Veuillez entrer un caractères: ')
-    console.log('Il vous reste', (HANGMANPICS.length - count), ' essaie')
+    const input = readlineSync.question('\nVeuillez entrer un caractères: ')
+    console.log('\nIl vous reste', ((HANGMANPICS.length - 1) - count), ' essaie\n')
     if (count === HANGMANPICS.length) {
       return console.log('!!! GAME OVER !!!')
     }
     else {
       switch (input) {
         case 'a':
-          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          for (let i = 0; i < word.length; ++i) {
+            word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          }
           break
 
         case 'b':
