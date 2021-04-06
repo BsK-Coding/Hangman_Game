@@ -35,18 +35,20 @@ const startGame = () => {
   console.log(`\n## Jeux du Pendu ##\n\nVous devez trouver un mot de ${secret.length} caractères\n`, secretStr, '\n')
 
   let count = 0
-  while (true) {
+  let etat = true
+  while (etat) {
     const input = readlineSync.question('\nVeuillez entrer un caractères: ')
-    console.log('\nIl vous reste', ((HANGMANPICS.length - 1) - count), ' essaie\n')
-    if (count === HANGMANPICS.length) {
+    console.log('\nIl vous reste', ((HANGMANPICS.length) - count), ' essaie\n')
+
+    if (count === (HANGMANPICS.length)) {
       return console.log('!!! GAME OVER !!!')
     }
     else {
       switch (input) {
         case 'a':
-          for (let i = 0; i < word.length; ++i) {
-            word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
-          }
+          //for (let i = 0; i < word.length; ++i) {
+          word.find(letter => letter === input) ? secretOut[word.indexOf(input)] = input.replace() : (console.log(HANGMANPICS[count]), count++)
+          //}
           break
 
         case 'b':
@@ -160,3 +162,5 @@ const startGame = () => {
 }
 
 startGame()
+
+//HANGMANPICS.length === count ? etat = false : etat = true
