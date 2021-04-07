@@ -4,6 +4,7 @@ const readlineSync = require('readline-sync')         // yarn add readline-sync 
 const chalk = require('chalk')                        // yarn add chalk
 const fs = require('fs')
 const { hangmanPics } = require('./hangmanPics')
+const { randomWords } = require('./randomWords')
 
 // Une solution que j'ai proposé est de travailler avec un tableau pour le mot à afficher (la string  composé de plusieurs caractères _)
 // Ce tableau devra posseder la même taille que le mot à trouver:
@@ -22,9 +23,10 @@ const { hangmanPics } = require('./hangmanPics')
 // Afficher les caractère déjà tapé
 
 const startGame = () => {
-  const wordStr = "solacabonta"
+  const wordStr = randomWords()
+  let wordMin = wordStr.toLowerCase()
   //Split => Transforme ma data String dans un tableau, en découpant ma data par rapport au séparateur renseigné.
-  let word = wordStr.split('')
+  let word = wordMin.split('')
 
   const secret = Array(word.length).fill('_')
   let secretTab = secret
@@ -32,9 +34,8 @@ const startGame = () => {
   console.log(chalk.yellow(`\n## Jeux du Pendu ##\n`), chalk.white(`\nVous devez trouver un mot de ${secret.length} caractères\n`, secretStr, '\n'))
 
   let count = 0
-  let etat = true
 
-  while (etat) {
+  while (true) {
     const input = readlineSync.question(chalk.blueBright('\nVeuillez entrer un caractères: '))
     console.log('\nIl vous reste', ((hangmanPics.length) - (count)), ' essaie\n')
 
