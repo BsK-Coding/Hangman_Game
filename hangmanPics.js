@@ -1,6 +1,6 @@
 /* ETAPES DU PENDU */
 
-HANGMANPICS = [`
+hangmanPics = [`
  
        
         
@@ -14,8 +14,8 @@ HANGMANPICS = [`
         |
         |
 =========`, `
-  + --- +
-  |     |
+   +--- +
+   |    |
         |
         |
         |
@@ -64,4 +64,4 @@ HANGMANPICS = [`
         |
 =========`]
 
-exports.HANGMANPICS = HANGMANPICS
+exports.hangmanPics = hangmanPics
