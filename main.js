@@ -34,155 +34,166 @@ const startGame = () => {
   console.log(chalk.yellow(`\n## Jeux du Pendu ##\n`), chalk.white(`\nVous devez trouver un mot de ${secret.length} caractères\n`, secretStr, '\n'))
 
   let count = 0
+  let etat = true
+  while (etat) {
 
-  while (true) {
-    const input = readlineSync.question(chalk.blueBright('\nVeuillez entrer un caractères: '))
-    console.log('\nIl vous reste', ((hangmanPics.length) - (count)), ' essaie\n')
-
-    if (count == hangmanPics.length) {
-      return console.log(chalk.red('!!! GAME OVER !!!\n'))
+    if (word.join(' ') === secretStr) {
+      console.log(chalk.green('\n!!! CONGRATULATION !!!\n'))
+      etat = false
     }
     else {
-      switch (input) {
-        case 'a':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
+      const input = readlineSync.question(chalk.blueBright('\nVeuillez entrer un caractères: '))
+      console.log('\nIl vous reste', ((hangmanPics.length) - (count)), ' essaie\n')
 
-        case 'b':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'c':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'd':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'e':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'f':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'g':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'h':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'i':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'j':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'k':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'l':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'm':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'n':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'o':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'p':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'q':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'r':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 's':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 't':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'u':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'v':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'w':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'x':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'y':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        case 'z':
-          word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          secretStr = secretTab.join(' ')
-          break
-
-        default:
-          // Instructions à exécuter lorsqu'aucune des valeurs
-          secretStr = secretTab.join(' ')
-          break
+      if (count == hangmanPics.length) {
+        return console.log(chalk.red('!!! GAME OVER !!!\n'))
       }
+      else {
+        switch (input) {
+          case 'a':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'b':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'c':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'd':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'e':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'f':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'g':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'h':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'i':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'j':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'k':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'l':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'm':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'n':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'o':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'p':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'q':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'r':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 's':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 't':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'u':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'v':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'w':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'x':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'y':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          case 'z':
+            word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
+            secretStr = secretTab.join(' ')
+            break
+
+          default:
+            // Instructions à exécuter lorsqu'aucune des valeurs
+            secretStr = secretTab.join(' ')
+            break
+        }
+      }
+      console.log(secretStr)
     }
-    console.log(secretStr)
+
   }
-
 }
-
 startGame()
+
+/* Boucle de verification */
+// console.log('secretStr:', typeof secretStr, secretStr)
+// console.log('secretTab:', typeof secretTab, secretTab)
+// console.log('secretword:', typeof word.join(' '), word.join(' '))
