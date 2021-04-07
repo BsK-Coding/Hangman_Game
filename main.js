@@ -30,15 +30,13 @@ const startGame = () => {
   let secretTab = secret
   let secretStr = secret.join(' ')
   console.log(chalk.yellow(`\n## Jeux du Pendu ##\n`), chalk.white(`\nVous devez trouver un mot de ${secret.length} caractères\n`, secretStr, '\n'))
-  //console.log(secretTab)
+
   let count = 0
   let etat = true
-  //let secretTab = ''
 
   while (etat) {
     const input = readlineSync.question(chalk.blueBright('\nVeuillez entrer un caractères: '))
     console.log('\nIl vous reste', ((hangmanPics.length) - (count)), ' essaie\n')
-    //secretTab = secretTab.split('')
 
     if (count == hangmanPics.length) {
       return console.log(chalk.red('!!! GAME OVER !!!\n'))
@@ -47,8 +45,6 @@ const startGame = () => {
       switch (input) {
         case 'a':
           word.find(letter => letter === input) ? secretTab[word.indexOf(input)] = input.replace() : (console.log(hangmanPics[count]), count++)
-          //console.log(`TAB:`, secretTab)
-          //console.log(`STRING:`, secretTab = secret.toString(' '))
           secretStr = secretTab.join(' ')
           break
 
@@ -189,5 +185,3 @@ const startGame = () => {
 }
 
 startGame()
-
-//hangmanPics.length === count ? etat = false : etat = true
